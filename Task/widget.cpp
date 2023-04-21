@@ -15,8 +15,6 @@ Widget::Widget(QWidget *parent)
     ui->lineEditHost->setText("test.mosquitto.org");
     ui->spinBoxPort->setValue(1883);
     ui->lineEditTopic->setText("piklema/test");
-
-    ui->lineEditFilepath->setText("C:/1/2.txt");
 }
 
 Widget::~Widget()
