@@ -59,7 +59,9 @@ void Client::dataTransmission(QString filePath, QString topic)
         qDebug() << tr("Начало передачи данных!");
         while (!in.atEnd()){
             auto &&data = in.readLine();
-            if (client_->publish(topic, data.toUtf8()) != -1){
+            bool flag;
+            data.toDouble(&flag);
+            if (flag && client_->publish(topic, data.toUtf8()) != -1){
                 ++indexp;
             }
             ++index;
