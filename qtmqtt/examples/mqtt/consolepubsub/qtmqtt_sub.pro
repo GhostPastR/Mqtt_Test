@@ -1,9 +1,8 @@
-QT       += core gui network
-#mqtt
+QT -= gui
+QT += mqtt
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
-CONFIG += c++17
+CONFIG += c++11 console
+CONFIG -= app_bundle
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
@@ -17,24 +16,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    client.cpp \
-    main.cpp \
-    widget.cpp
+        main_sub.cpp
 
 HEADERS += \
-    client.h \
-    widget.h
+        configuration.h
 
-FORMS += \
-    widget.ui
-
-# Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
-
-
-LIBS += -L$$PWD/../../build/qtmqtt/lib/ -lQt5Mqtt
-
-INCLUDEPATH += $$PWD/../../build/qtmqtt/include
-DEPENDPATH += $$PWD/../../build/qtmqtt/include
+target.path = $$[QT_INSTALL_EXAMPLES]/mqtt/consolepubsub
+INSTALLS += target

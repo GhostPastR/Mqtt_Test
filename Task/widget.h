@@ -28,7 +28,7 @@ private slots:
 
 private:
     Ui::Widget *ui;
-    Client *client_;
+    Client *client_{};
     QThread thread_;
 };
 #endif // WIDGET_H

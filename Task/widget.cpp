@@ -22,8 +22,7 @@ Widget::~Widget()
     if(client_){
         client_->deleteLater();
     }
-    if(!thread_.wait(1000))
-    {
+    if(!thread_.wait(1000)){
         thread_.terminate();
         thread_.wait();
     }
