@@ -1,4 +1,5 @@
 #include "client.h"
+#include <QFile>
 
 Client::Client(QObject *parent) : QObject(parent)
 {

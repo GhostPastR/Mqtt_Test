@@ -34,7 +34,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 
-LIBS += -L$$PWD/../../build/qtmqtt/lib/ -lQt5Mqtt
+unix:!macx: LIBS += -L$$PWD/../../build/lib/ -lQtMqtt
 
-INCLUDEPATH += $$PWD/../../build/qtmqtt/include
-DEPENDPATH += $$PWD/../../build/qtmqtt/include
+INCLUDEPATH += $$PWD/../qtmqtt
+DEPENDPATH += $$PWD/../qtmqtt

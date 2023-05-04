@@ -2,7 +2,7 @@
 #define CLIENT_H
 
 #include <QObject>
-#include <QtMqtt/QtMqtt>
+#include <qmqttclient.h>
 
 struct ParameterClient{
     QString host;
