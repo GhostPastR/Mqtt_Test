@@ -33,8 +33,10 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-
-unix:!macx: LIBS += -L$$PWD/../../build/lib/ -lQtMqtt
+unix:!macx: LIBS += -L../lib/ -lQtMqtt
 
 INCLUDEPATH += $$PWD/../qtmqtt
 DEPENDPATH += $$PWD/../qtmqtt
+
+DESTDIR = ../lib/
+
