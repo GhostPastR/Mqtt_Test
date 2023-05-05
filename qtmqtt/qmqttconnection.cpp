@@ -166,7 +166,7 @@ bool QMqttConnection::ensureTransport(bool createSecureIfNeeded)
 #endif
     connect(socket, &QAbstractSocket::connected, this, &QMqttConnection::transportConnectionEstablished);
     connect(socket, &QAbstractSocket::disconnected, this, &QMqttConnection::transportConnectionClosed);
-    connect(socket, &QAbstractSocket::errorOccurred, this, &QMqttConnection::transportError);
+    connect(socket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &QMqttConnection::transportError);
 
     connect(m_transport, &QIODevice::aboutToClose, this, &QMqttConnection::transportConnectionClosed);
     connect(m_transport, &QIODevice::readyRead, this, &QMqttConnection::transportReadReady);
