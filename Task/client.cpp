@@ -62,7 +62,7 @@ void Client::dataTransmission(QString filePath, QString topic)
             auto &&data = in.readLine();
             bool flag;
             data.toDouble(&flag);
-            if (flag && client_->publish(topic, data.toUtf8()) != -1){
+            if (flag && client_->publish(topic, data.toUtf8(), 1, true) != -1){
                 ++indexp;
             }
             ++index;
